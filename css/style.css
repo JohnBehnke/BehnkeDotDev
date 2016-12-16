@@ -31,9 +31,7 @@ a {
     text-decoration: underline;
     color: #111;
 }
-p {
-    /*text-align: justify;*/
-}
+
 .strong-like-russian-bear {
     width: 90%;
 
@@ -48,13 +46,20 @@ p {
     font-weight: bold;
     font-size: 60%;
 }
+.desc{
+    font-size: 80%;
+    text-align: left;
+}
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
 
-#experience p, #projects p, #resume p, #contact p {
+#page, #experience p, #projects p, #resume p, #contact p {
     text-align: center;
+}
+#IBM p, #CodeU p, #RD p{
+    text-align: left;
 }
 
 footer p {

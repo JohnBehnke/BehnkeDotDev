@@ -1,50 +1,56 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>John Behnke</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-</head>
-<body>
-    <div id="page">
-        <div align="center">
-            <img src="assets/images/profile.png" alt="John Behnke">
-            <h1>Welcome</h1>
-        </div>
-        <div id="intro">
-            <p>I'm John Behnke. I'm a student at Rensselaer Polytechnic Institute studying Computer Science. I'm passionate about programming, design, space, rocketry, 3D printing, and a ton more.</p>
-
+    <head>
+        <meta charset="UTF-8">
+        <title>John Behnke</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+    </head>
+    <body>
+        <div id="page">
+            <div>
+                <img src="assets/images/profile.png" alt="John Behnke">
+                <h1>Welcome</h1>
+            </div>
+            <div id="intro">
+                <p>I'm John Behnke. I'm a student at Rensselaer Polytechnic Institute studying Computer Science. I'm passionate about programming, design, space, rocketry, 3D printing, and a ton more.</p>
             <aside class="strong-like-russian-bear">Disclaimer: I am <em>not</em> a web designer. I told myself if I were to make a website for myself that I would code every portion of it. Could have I used some template off of a Google search for "simple personal website?" Probably, but then my site wouldn't be mine, so this is where we are.</aside>
         </div>
         <div id="about">
-            <h2 align="center">About Me</h2>
+            <h2>About Me</h2>
             <p>I'm currently a senior at Rensselaer Polytechnic Institute (RPI) in Troy, New York. I'm enrolled as a Computer Science student aiming to get my B.S. in, you guessed it, Computer Science. Being a senior, I've taken a wide breadth of computer science classes ranging from your typical Data Structures and Algorithms classes to classes Distributed Systems and Algorithms and Parallel Computing. While I'm not working on assignments or studying for exams, I'm often hacking away on random projects, playing games, helping residents in my hall (I'm the Resident Director for a Residence Hall on campus), 3D printing, or working on my Level 2 Certification rocket.</p>
         </div>
-        <div id="experience" align="center">
+        <div id="experience">
             <h2>Experience</h2>
-
             <h4>Computer Science Experience</h4>
+            
             <p>IBM &#124; Design Innovations Software Engineering Intern &#124; May &#150; August 2016</p>
+            <div id="IBM" class="desc">
+                <p>Worked on expanding existing IBM tools with new features using NodeJS, Express, and Cloudant and also created a supplemental tvOS experience for an existing IBM product using Swift, TVML, TVJS, Bluemix, Cloudant, and Kitura. Utilized Agile methodologies such as Scrum, daily stand ups, Kanban, and IBM methodologists like Design Thinking through out the experience. Also came in first place in an intern hackathon by creating a Watson powered tool for interns.</p>
+            </div>
             <p>Google CodeU &#124; Participant &#124; March &#150; August 2015</p>
-
+            <div id="CodeU" class="desc">
+                <p>Worked with a Google Software Engineer on improving technical and interview skills. Also worked with other students in the CodeU program to create an Android application aimed at helping students. Ultimately went to the CodeU Summit at Google's Mountain View campus to demo the application and attend workshops and talks. Became an Udacity Certified Android developer.</p>
+            </div>
             <h4>Other Experience</h4>
             <p>RPI Residence Life &#124; Resident Director&#44; Cary Hall</p>
+            <div id="RD" class="desc">
+            <p>Resident Director of Cary Hall at RPI. Managed a staff of three Resident Assistants and one Learning Assistant to ensure a safe and welcoming environment for the first-year residents. Regularly work with Residence Life Professional Staff to create and enforce policy.</p>
+            </div>
             <p>RPI Residence Life &#124; Resident Assistant&#44;  Barton Hall</p>
         </div>
-        <div id="projects" align="center">
+        <div id="projects" >
             <h2>Projects</h2>
             <p>Blah Blah</p>
         </div>
-        <div id="resume" align="center">
+        <div id="resume">
             <h2>Resume</h2>
             <p>If you want a copy of my resume, <a href="assets/files/JohnBehnkeResume.pdf" target="_blank">check it out</a></p>
         </div>
-        <div id="contact" align="center">
+        <div id="contact">
             <h2>Contact</h2>
-            <p>You can shoot me an email at <a href="mailto:behnkej@me.com">behnkej@me.com</a></p>
+            <p>You can shoot me an email at <a href="mailto:me@johnbehnke.me">me@johnbehnke.me</a></p>
             <p><em>... or</em> you can find me at one of these sites.</p>
-
             <a href="http://www.github.com/johnbehnke" target="_blank"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
             &nbsp;&nbsp;
             <a href="https://www.facebook.com/johnliambehnke" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -55,11 +61,19 @@
             
             <a href=" https://www.linkedin.com/in/john-behnke-72214485?trk=hp-identity-photo" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
         </div>
-
         <footer class="side-note">
-            <p>Two of my friends majoring in ITWS saw the source code to the first iteration of this site and got so angry over how the HTML was originally laid out that they had me rewrite the entire thing. Thanks Dave and Justin </p> 
+            <p>So fun fact, two of my friends majoring in ITWS saw the source code to the first iteration of this site and got so angry over how the HTML was originally laid out that they had me rewrite the entire thing. Thanks Dave and Justin</p>
         </footer>
     </div>
-
 </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89101503-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>
