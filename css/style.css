@@ -58,7 +58,7 @@ a {
 #page, #experience p, #projects p, #resume p, #contact p {
     text-align: center;
 }
-#IBM p, #CodeU p, #RD p{
+#IBM p, #CodeU p, #RD p, #RA p {
     text-align: left;
 }
 
