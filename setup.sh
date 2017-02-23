@@ -1,10 +1,7 @@
 #!/bin/sh
 
-echo 
-read -p "Are you ready to download a bunch of sweet development tools? <y/n> " prompt
 
-if [[ $prompt =~ [yY](es)* ]]
-then
+
 	echo "Disable GateKeeper. I'm assuming that you know how to NOT download a virus"
 
 	sudo spctl --master-disable
@@ -88,9 +85,4 @@ then
 	sleep 3.0
 	
 
-else
-	echo "Well..... nevermind then :("
-		sleep 2.0
-	exit
-fi
 
