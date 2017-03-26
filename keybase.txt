@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/johnbehnke
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://johnbehnke.me
+  * I am johnbehnke (https://keybase.io/johnbehnke) on keybase.
+  * I have a public key with fingerprint 12D8 F336 751E 86B4 73B4  30E5 FFB2 3918 A157 43DE
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101c9689b2132d9ef7fc46782cda5b7c353fc3a6116dc336d351e611e9affa3be7d0a",
+            "fingerprint": "12d8f336751e86b473b430e5ffb23918a15743de",
+            "host": "keybase.io",
+            "key_id": "ffb23918a15743de",
+            "kid": "0101c9689b2132d9ef7fc46782cda5b7c353fc3a6116dc336d351e611e9affa3be7d0a",
+            "uid": "0e98ffe8591adfd25ea78cdb3a9b6919",
+            "username": "johnbehnke"
+        },
+        "service": {
+            "hostname": "johnbehnke.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1490557253,
+    "expire_in": 157680000,
+    "prev": "f537c3be7e507e45097e1ddb9a8adb6ca51469c1e1f5fd9da3e0977bb5253a97",
+    "seqno": 13,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.66
+Comment: https://keybase.io/crypto
+
+yMIiAnicrZJdSBVBFMevqaWXTIW0xIhaEMrEdnbv7O5ciIQyIgqCjEKr28zOrHdT
+d9d791pigiV9UQ99YJRi2cdDRUFfRAXBtUyDKPqgSPFFKsseLMKPBMtmrZ7qsXkZ
+5szv/M/5H05HWqLPn9CXOW/N6c+unfC4vTnm2/gmp7hOIDatFYJ1QgWbvFglZVE3
+VGFSISiIQAQ6UjREJCBLFDFDNfSAomqSTjEkqi5D2dBlrACgUF2WFSpDwPiLIWwY
+WCZMpSIWCgTDtMpZxImYlstlgUQ1g9MqhzWFBFSZBGSRQcMgkoyAhgFUAzJlPDFs
+R70M3hzBUVZo2jzGH6HJ9v7B/+e+Y7/kGNIMg2kQAUwNKkGGVU2nRMaIKAggD4yy
+iIWrGKe32WGLsLBVwYT6AoHHa0ydeaP1vPzFFFZ5bTsR27V1u5J/hV3XCXqZbq3j
+odsZCf0WCRHTonySPKGGRaKmbQlBwEndNT1VEEAihKoE5QKB7XDMCAuZHgFVRRP5
+8cqwGm9uUOYj4CYZFFUWgCJSGaCUIKxhShQdQxBQkA4YMKBBEcUy44hKCOTaGKmC
+Z6vasrk2L+Xicq4ZNcst7MYi3PT9+KYkX4LfNzV5irdiPn9qxp/FW5s9bTz1el7K
+WMLTgws/7t7X09tf+mN+4xHh5eq5Zu5IoGxXV1dwS1Wm9W5F6HJ70c4ry2dMr7yA
+skLdJ+pnDncVvu3YsMcpu/YpZXTVN7GwJ79soiR7bOJqY/zAolt3W7+1r447DSPB
+/S0Z55MiN6/HxxsX+JtmhD/lHX21+PacL/NrL3XXffh+PmtrfxpKT1tSf/FYz4P0
+jJZThxX/0nPPjsW6B04OZN6ZtXV4ndS/I/4iMaXNefGwu2Hoeb9W8kT94rTNq2wd
+OA6fFUtnQrOHc+Y2O129Ud/KUiVz/dm99zqTD/Uta9Jz0GtS1vl+cHPHYO7X/NEV
+EyhWfeNH1siAOlw0dOHR4E/Uqkfn
+=TQXS
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/johnbehnke
+
+==================================================================
