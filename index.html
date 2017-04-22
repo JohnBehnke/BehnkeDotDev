@@ -9,7 +9,7 @@
     <body>
         <div id="page">
             <div>
-                <img src="assets/images/profile.png" alt="John Behnke">
+                <img src="assets/images/profile.png" alt="John Behnke" id="profile">
                 <h1>Welcome</h1>
             </div>
             <div id="intro">
@@ -69,6 +69,12 @@
         </footer>
     </div>
 </body>
+<script>
+    const colors = ['#C2185B', '#D32F2F', '#7B1FA2', '#512DA8', '#303F9F', '#1976D2', '#0288D1', '#0097A7', '#388E3C'];
+    var randomColor = Math.floor((Math.random() * colors.length));
+    document.getElementById('profile').style.border='5px solid ' + colors[randomColor];
+</script>
+<script src="scripts/code.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
