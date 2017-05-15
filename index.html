@@ -3,18 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>John Behnke</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css" id="light">
+        <link rel="stylesheet" type="text/css" href="css/style-dark.css" id="dark">
         <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="shortcut icon" href="assets/images/favicon.png"/>
     </head>
     <body>
-        <div id="page">
+        <div id="page" ">
             <div>
                 <img src="assets/images/profile.png" alt="John Behnke" id="profile">
                 <h1>Welcome</h1>
             </div>
             <div id="intro">
                 <p>I'm John Behnke. I'm a student at Rensselaer Polytechnic Institute studying Computer Science. I'm passionate about programming, design, space, rocketry, 3D printing, and a ton more.</p>
-            <aside class="strong-like-russian-bear">Disclaimer: I am <em>not</em> a web designer. I told myself if I were to make a website for myself that I would code every portion of it. Could have I used some template off of a Google search for "simple personal website?" Probably, but then my site wouldn't be mine, so this is where we are.</aside>
+           
         </div>
         <div id="about">
             <h2>About Me</h2>
@@ -48,33 +50,34 @@
         </div>
         <div id="resume">
             <h2>Resume</h2>
-            <p>If you want a copy of my resume, <a href="assets/files/JohnBehnkeResume.pdf" target="_blank">check it out</a></p>
+            <p>If you want a copy of my resume, <a href="assets/files/JohnBehnkeResume.pdf" target="_blank" class="link">check it out</a></p>
         </div>
         <div id="contact">
             <h2>Contact</h2>
-            <p>You can shoot me an email at <a href="mailto:me@johnbehnke.me">me@johnbehnke.me</a></p>
+            <p>You can shoot me an email at <a href="mailto:me@johnbehnke.me" class="link">me@johnbehnke.me</a></p>
             <p><em>... or</em> you can find me at one of these sites.</p>
-            <a href="http://www.github.com/johnbehnke" target="_blank"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
-            &nbsp;&nbsp;
-            <a href="https://www.facebook.com/johnliambehnke" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            &nbsp;&nbsp;
-            
-            <a href="https://twitter.com/johnlbehnke" target="_blank"><i class="fa fa-twitter fa-lg "></i></a>
-            &nbsp;&nbsp;
-            
-            <a href=" https://www.linkedin.com/in/john-behnke-72214485?trk=hp-identity-photo" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+            <div id="faIcon">
+                <a href="http://www.github.com/johnbehnke" target="_blank"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+                &nbsp;&nbsp;
+                <a href="https://www.facebook.com/johnliambehnke" target="_blank"><i class="fa fa-facebook fa-lg " aria-hidden="true"></i></a>
+                &nbsp;&nbsp;
+                
+                <a href="https://twitter.com/johnlbehnke" target="_blank"><i class="fa fa-twitter fa-lg "></i></a>
+                &nbsp;&nbsp;
+                
+                <a href=" https://www.linkedin.com/in/john-behnke-72214485?trk=hp-identity-photo" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+                
+            </div>
+
         </div>
-        <footer class="side-note">
-            <p>So fun fact, two of my friends majoring in ITWS saw the source code to the first iteration of this site and got so angry over how the HTML was originally laid out that they had me rewrite the entire thing. Thanks Dave and Justin.</p>
-        </footer>
+         <aside class="strong-like-russian-bear">Disclaimer: I am <em>not</em> a web designer. I told myself if I were to make a website for myself that I would code every portion of it. Could have I used some template off of a Google search for "simple personal website?" Probably, but then my site wouldn't be mine, so this is where we are.</aside>
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        
     </div>
 </body>
-<script>
-const colors = ['#d32f2f','#c2185b','#7b1fa2','#512da8','#303f9f','#1976d2','#0288d1','#0097a7','#00796b','#388e3c','#689f38','#afb42b','#fbc02d','#ffa000',
-'#f57c00','#e64a19','#5d4037','#616161','#455a64'];
-var randomColor = Math.floor((Math.random() * colors.length));
-document.getElementById('profile').style.border='5px solid ' + colors[randomColor];
-</script>
+<script src="scripts/colors.js"></script>
 <script src="scripts/code.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

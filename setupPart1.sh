@@ -1,10 +1,8 @@
 #!/bin/sh
 
-echo 
-read -p "Are you ready to download a bunch of sweet development tools?! <y/n> " prompt
 
-if [[ $prompt =~ [yY](es)* ]]
-then
+
+
 	echo "Disable GateKeeper. I'm assuming that you know how to NOT download a virus"
 
 	sudo spctl --master-disable
@@ -48,12 +46,8 @@ then
 	#Downloads
 
 	urls=('https://download.sublimetext.com/Sublime%20Text%20Build%203103.dmg'
-		'https://d38qbqfndhlqd2.cloudfront.net/Flux34-3.zip'
 		'http://supportdownload.apple.com/download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/Mac_OS_X/downloads/031-03190.20140529.Pp3r4/JavaForOSX2014-001.dmg'
 		'https://cloud.delosent.com/ublock-safari-0.9.5.0.safariextz'
-		
-		
-		
 		)
 
 	#string to hold the curl command
@@ -87,10 +81,4 @@ then
 	echo "🍻🍻🍻🍻🍻Finished! Enjoy! 🍻🍻🍻🍻🍻"
 	sleep 3.0
 	
-
-else
-	echo "Well..... nevermind then :("
-		sleep 2.0
-	exit
-fi
 
