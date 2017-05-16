@@ -17,11 +17,6 @@ body {
     background-color: white;
     border-radius: 5px;
 
-
-  top: 0;
-  height: 100%;
-  overflow: hidden;
-  transition: all 1s;
 }
 img {
     margin: 5px auto;
