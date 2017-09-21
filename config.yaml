@@ -1,0 +1,11 @@
+bucket: behnke.xyz
+region: us-east-1
+files:
+  assets/files: /Users/john/Documents/Work/Resumes/Latest/Version 6/JohnBehnkeResume.pdf
+  .: /Users/john/Documents/Code/Personal/EasyDevTools/setup.sh
+
+ignore:
+  - .git
+  - .gitignore
+  - .DS_Store
+  - SiteDeploy
