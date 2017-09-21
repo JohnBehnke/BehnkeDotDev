@@ -9,3 +9,4 @@ ignore:
   - .gitignore
   - .DS_Store
   - SiteDeploy
+  - godeploy
