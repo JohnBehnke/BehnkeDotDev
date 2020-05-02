@@ -134,13 +134,25 @@ h1 {
   }
 }
 
-.intro {
+.main-text {
   font-size: 20px;
   line-height: 150%;
   letter-spacing: 1px;
 }
 @media (min-width: 35.625em), (min-width: 45.625em), (min-width: 12.4375em) {
-  .intro {
+  .main-text {
+    padding: 5%;
+  }
+}
+
+.main-text-404 {
+  font-size: 30px;
+  line-height: 150%;
+  letter-spacing: 1px;
+  text-align: center;
+}
+@media (min-width: 35.625em), (min-width: 45.625em), (min-width: 12.4375em) {
+  .main-text-404 {
     padding: 5%;
   }
 }
