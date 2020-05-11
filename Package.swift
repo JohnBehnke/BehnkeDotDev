@@ -3,17 +3,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "PersonalSite",
+    name: "BehnkeDotDev",
     products: [
-        .executable(name: "PersonalSite", targets: ["PersonalSite"])
+        .executable(name: "BehnkeDotDev", targets: ["BehnkeDotDev"])
     ],
     dependencies: [
-        .package(url: "https://github.com/johnsundell/publish.git", from: "0.3.0")
+        .package(url: "https://github.com/johnsundell/publish.git", from: "0.3.0"),
+        .package(url: "https://github.com/johnbehnke/s3publishdeploy", from: "0.1.0")
+        
     ],
     targets: [
         .target(
-            name: "PersonalSite",
-            dependencies: ["Publish"]
+            name: "BehnkeDotDev",
+            dependencies: ["Publish", "S3PublishDeploy"]
         )
     ]
 )

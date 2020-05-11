@@ -47,6 +47,15 @@
         }
       },
       {
+        "package": "S3PublishDeploy",
+        "repositoryURL": "https://github.com/johnbehnke/s3publishdeploy",
+        "state": {
+          "branch": null,
+          "revision": "9111612255c1984f2fca07681f763391d30eea45",
+          "version": "0.1.0"
+        }
+      },
+      {
         "package": "ShellOut",
         "repositoryURL": "https://github.com/johnsundell/shellout.git",
         "state": {
