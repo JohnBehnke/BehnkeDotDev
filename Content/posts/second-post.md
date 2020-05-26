@@ -1,10 +1,9 @@
 ---
+title: Processing astrophotography photos in macOS
 date: 2020-05-05 19:56
-description: The second post i'm making
-tags: first, article
+description: Lets talk about the different methods of processing astrophotography photos in macOS.
+tags: macOS, Pixinsight, Astrophotography
 ---
-# This is the second post
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mattis dui in mi suscipit, eget convallis lorem viverra. Nulla facilisi. Praesent tristique nibh nec est bibendum consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut dapibus sed elit eu posuere. Nam porttitor purus in consequat accumsan. Cras auctor faucibus maximus. Integer gravida neque nec neque ullamcorper aliquet. Morbi nec magna at sem fermentum eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vel fermentum nisl.
 
 Nullam at dui augue. Duis tortor orci, pharetra venenatis tempor nec, dignissim ut est. Aenean tincidunt, elit non sodales venenatis, ex nisi pharetra nisi, non bibendum ligula nulla in felis. Aliquam eros est, mollis quis dapibus vel, mollis sodales justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer viverra ipsum ut nibh malesuada tempus id a tortor. In porta arcu mi, eu aliquam velit tempor quis. Integer viverra nibh id magna dignissim gravida. Cras in rhoncus dolor, et faucibus ligula. Sed purus diam, lacinia venenatis aliquam vel, varius in est.

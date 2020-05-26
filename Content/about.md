@@ -1,3 +1,7 @@
-I'm a software developer out of Connecticut. Currently, I'm working at IBM doing primarily back-end development with some front-end work sprinkled in. I'm into back-end development, mobile development, devops work flows, UI/UX design, and a whole bunch more.
+I'm a software developer out of Connecticut.  I'm into back-end development, mobile development, devops work flows, UI/UX design, and a whole bunch more.
 
-Feel free to reach out to me. My résumé and Github accounts are linked here along with a quick link for email.
+Currently, I'm a software developer at IBM in the Digital Workplace Engineering group. I primarily focus on backend development, but I do frontend work occasionally.  
+
+I received my bachelor's degree in Computer Science at [Rensselaer Polytechnic Institute](https://rpi.edu) in 2017.
+
+Feel free to reach out to me.

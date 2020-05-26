@@ -24,7 +24,8 @@ struct BehnkeDotDev: Website {
 
     // Update these properties to configure your website:
     var url = URL(string: "https://behnke.dev")!
-    var name = "behnke.dev"
+    var title = "Test"
+    var name = "John Behnke"
     var description = "A description of PersssssssssonalSite"
     var language: Language { .english }
     var imagePath: Path? { .some("images/social-previews/home.png") }

@@ -4,7 +4,7 @@
 //
 //  Created by John Behnke on 5/3/20.
 //
-
+import Foundation
 import Publish
 import Plot
 
@@ -29,8 +29,10 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
           .src("https://use.fontawesome.com/releases/v5.0.6/js/all.js")
         )
       ),
+
       .body(
-        .sidebar(for: context.site),
+        //        .sidebar(for: context.site),
+        .header(for: context.site),
         .div(
           .id("content"),
           .div(
@@ -57,7 +59,8 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
         )
       ),
       .body(
-        .sidebar(for: context.site),
+        //        .sidebar(for: context.site),
+        .header(for: context.site),
         .div(
           .id("content"),
           .div(
@@ -78,16 +81,26 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .head(for: item, on: context.site),
 
       .body(
-        .sidebar(for: context.site),
+        //        .sidebar(for: context.site),
+        .header(for: context.site),
         .div(
           .id("content"),
           .div(
             .class("main-text item-page"),
-            .contentBody(item.body)
+            .h2(
+              .class("post__title"),
+              .text(item.title)
+            ),
+            .time
+            .p(
+              .class("post__date"),
+//              .text( DateFormatter.shortDate.string(from: item.date))
+            ),
+            .tagList(for: item, on: context.site, center: true),
+            .div(.class("post__text"), .contentBody(item.content.body))
           )
-        )
-
-
+        ),
+        .footer(for: context.site)
       )
     )
   }
@@ -104,9 +117,10 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
         )
       ),
       .body(
-        .text("daskjdhakjdhjkdhasjkdhakjdhs"),
-        .sidebar(for: context.site),
-        .wrapper(.contentBody(page.body)),
+        .header(for: context.site),
+        .if(page.path == "about", .about(for: context.site, page: page)),
+        //        .sidebar(for: context.site),
+//        .wrapper(.contentBody(page.body)),
         .footer(for: context.site)
       )
     )
@@ -118,7 +132,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .lang(context.site.language),
       .head(for: page, on: context.site),
       .body(
-        .header(for: context, selectedSection: nil),
+        //        .header(for: context, selectedSection: nil),
         .wrapper(
           .h1("Browse all tags"),
           .ul(
@@ -145,7 +159,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .lang(context.site.language),
       .head(for: page, on: context.site),
       .body(
-        .header(for: context, selectedSection: nil),
+        //        .header(for: context, selectedSection: nil),
         .wrapper(
           .h1(
             "Tagged with ",
@@ -178,60 +192,24 @@ private extension Node where Context == HTML.BodyContext {
     .div(.class("wrapper"), .group(nodes))
   }
 
-
-  
-
-  static func header<T: Website>(
-    for context: PublishingContext<T>,
-    selectedSection: T.SectionID?
-  ) -> Node {
-    let sectionIDs = T.SectionID.allCases
-
-    return .header(
-      .wrapper(
-        .a(.class("site-name"), .href("/"), .text(context.site.name)),
-        .if(sectionIDs.count > 1,
-            .nav(
-              .ul(.forEach(sectionIDs) { section in
-                .li(.a(
-                  .class(section == selectedSection ? "selected" : ""),
-                  .href(context.sections[section].path),
-                  .text(context.sections[section].title)
-                  ))
-                })
-          )
-        )
-      )
-    )
-  }
-
   static func itemList(for items: [Item<BehnkeDotDev>], on site: BehnkeDotDev, title: String) -> Node {
     return
-
       .div(
-        .h2(
+        .class("post-preview-list"),
+        .h1(
+          .class("content-list-head"),
           .text(title)
         ),
-        .ul(
-          .class("item-list"),
-          .forEach(items) { item in
-            .li(
-              postPreview(for: item, on: site)
-            )
-          }
-        )
+        .forEach(items) { item in
+          postPreview(for: item, on: site)
+        }
     )
-
   }
-
-  static func tagList<T: Website>(for item: Item<T>, on site: T) -> Node {
-    return .ul(.class("tag-list"), .forEach(item.tags) { tag in
-      .li(.a(
-        .href(site.path(for: tag)),
-        .text(tag.string)
-        ))
-      })
-  }
-
-  
+}
+public extension DateFormatter {
+  static var shortDate: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .long
+    return formatter
+  }()
 }
