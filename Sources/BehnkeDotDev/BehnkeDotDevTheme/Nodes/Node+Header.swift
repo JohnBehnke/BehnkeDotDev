@@ -22,7 +22,7 @@ extension Node where Context == HTML.BodyContext {
         .forEach(sections, { section in
           .group([
             .span(
-              .style("font-weight: bold; color: blue;"),
+              .class("nav__seperator"),
               .text("•")
             ),
             .a(

@@ -10,17 +10,15 @@ import Plot
 
 extension Node where Context == HTML.BodyContext {
   static func tagList(for item: Item<BehnkeDotDev>, on site: BehnkeDotDev, center: Bool = false) -> Node {
-
     .div(
       .if(center, .class("tag-list--centered")),
       .forEach(item.tags) { tag in
         .a(
-          .class("tag"),
+          .class("tag \(tag.string.lowercased())"),
           .href(site.path(for: tag)),
           .text(tag.string)
         )
       }
     )
-
   }
 }

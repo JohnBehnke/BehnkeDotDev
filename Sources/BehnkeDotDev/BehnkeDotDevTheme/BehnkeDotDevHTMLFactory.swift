@@ -17,8 +17,8 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     let allBlogPosts = allItems.filter({ (item: Item) -> Bool in
       item.sectionID == .posts
     })
-    let allAstrophotographyPosts = allItems.filter({ (item: Item) -> Bool in
-      item.sectionID == .astrophotography
+    let allGalleryImages = allItems.filter({ (item: Item) -> Bool in
+      item.sectionID == .gallery
     })
     return HTML(
       .lang(context.site.language),
@@ -37,8 +37,8 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
           .id("content"),
           .div(
             .class("main-text"),
-            .itemList(for: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]), on: context.site, title: "Recent Blog Posts"),
-            .itemList(for: Array(allAstrophotographyPosts[0..<(allAstrophotographyPosts.count > 2 ? 3 : allAstrophotographyPosts.count)]), on: context.site, title: "Recent Astrophotogrphy Photos")
+            .itemList(for: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]), on: context.site, title: "Recent Posts"),
+            .itemList(for: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]), on: context.site, title: "Recent Gallery Images")
           )
         ),
         .footer(for: context.site)
@@ -91,10 +91,9 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
               .class("post__title"),
               .text(item.title)
             ),
-            .time
             .p(
               .class("post__date"),
-//              .text( DateFormatter.shortDate.string(from: item.date))
+              .text( DateFormatter.shortDate.string(from: item.date))
             ),
             .tagList(for: item, on: context.site, center: true),
             .div(.class("post__text"), .contentBody(item.content.body))

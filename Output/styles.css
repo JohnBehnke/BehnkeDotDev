@@ -1,25 +1,107 @@
-/*@media (prefers-color-scheme: dark) {*/
-/*  body {*/
-/*    background-color: #17181c;*/
-/*    color: white;*/
-/*  }*/
-/**/
-/*  .greeting__text {*/
-/*    background-image: linear-gradient(90deg, red, #fa6464);*/
-/*  }*/
-/**/
-/*  .intro {*/
-/*    color: white;*/
-/*  }*/
-/**/
-/*  .fa-lg {*/
-/*    color: white;*/
-/*  }*/
-/**/
-/*  .link {*/
-/*    color: white;*/
-/*  }*/
-/*}*/
+@charset "UTF-8";
+:root {
+  --red-primary: #C84242;
+  --red-secondary: #FA6464;
+  --blue-primary: #5B54FF;
+  --blue-secondary: #7B99FC;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #17181c;
+    color: white;
+  }
+
+  .greeting__text {
+    background-image: linear-gradient(90deg, var(--red-primary), var(--red-secondary));
+  }
+
+  .intro {
+    color: white;
+  }
+
+  .fa-lg {
+    color: white;
+  }
+
+  .link {
+    color: white;
+  }
+
+  .post__title {
+    color: var(--red-primary);
+  }
+  .post__link {
+    color: var(--red-primary);
+  }
+
+  .post__date {
+    color: white;
+  }
+
+  .nav__link {
+    color: white;
+  }
+  .nav__seperator {
+    color: var(--red-primary);
+  }
+
+  a {
+    color: var(--red-primary);
+    text-decoration: none;
+  }
+
+  .tag {
+    background: var(--red-primary);
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  .greeting__text {
+    background-image: linear-gradient(90deg, var(--blue-primary), var(--blue-secondary));
+  }
+
+  .fa-lg {
+    color: black;
+  }
+
+  .link {
+    color: black;
+  }
+
+  a {
+    color: var(--blue-primary);
+    text-decoration: none;
+  }
+
+  .post__title {
+    color: var(--blue-primary);
+  }
+  .post__link {
+    color: var(--blue-primary);
+  }
+
+  .post__date {
+    color: black;
+  }
+
+
+
+  .nav__link {
+    color: black;
+  }
+  .nav__seperator {
+    color: var(--blue-primary);
+  }
+
+  .tag {
+    background: var(--blue-primary);
+  }
+}
 .post-preview-list {
   display: block;
   padding: 20px;
@@ -39,11 +121,9 @@
 
 .tag {
   display: inline-block;
-  background-color: red;
-  color: #ddd;
-  padding: 4px 6px;
   border-radius: 25px;
   margin-right: 5px;
+  margin-bottom: 5px;
   font-size: 75%;
   text-decoration: none;
   padding: 0.3em 1em;
@@ -51,6 +131,18 @@
 }
 .tag__post {
   text-align: center;
+}
+
+.astrophotography::after {
+  content: " 🚀";
+}
+
+.development::after {
+  content: " 👨🏻‍💻";
+}
+
+.tutorial::after {
+  content: " 👨🏻‍🎓";
 }
 
 .tag-list--centered {
@@ -61,24 +153,26 @@
 .post__date {
   margin: 0 0 10px 0;
   font-size: 85%;
-  color: #5d5d5d;
   font-style: italic;
   text-align: center;
 }
-.post__date-preview {
+.post__date--preview {
   text-align: left;
+  font-style: italic;
+  font-size: 85%;
+  margin-top: 0;
 }
 .post__link {
   text-decoration: none;
 }
 .post__title {
   font-size: 2em;
-  color: #222;
   margin-bottom: 0.2em;
   text-align: center;
 }
 .post__title--preview {
   text-align: left;
+  margin-bottom: 5px;
 }
 .post__text {
   line-height: 1.5;
@@ -92,19 +186,24 @@
 }
 
 .post-text {
-  /*  font-size: 120%;*/
   line-height: 1.5;
 }
 
 .item-page img {
   padding: 10px;
-  border-radius: 3%;
   max-width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav__link {
   margin: 0px 5px;
   font-size: 1.25em;
+  text-decoration: none;
+}
+.nav__seperator {
+  font-weight: bold;
 }
 
 .waving-hand {
@@ -113,24 +212,7 @@
   margin-left: 20px;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: white;
-    color: black;
-  }
 
-  .greeting__text {
-    background-image: linear-gradient(90deg, #1b04c9, #1f7fd3);
-  }
-
-  .fa-lg {
-    color: black;
-  }
-
-  .link {
-    color: black;
-  }
-}
 @media (max-width: 75em) {
   .hidden-on-small {
     visibility: hidden;
@@ -154,7 +236,7 @@ body {
   margin: 35px auto;
   padding-bottom: 0;
   padding: 5%;
-  max-width: 900px;
+  max-width: 750px;
 }
 
 .header {
@@ -162,9 +244,7 @@ body {
   margin-bottom: 20px;
 }
 
-a {
-  color: rgba(0, 0, 0, 0.8);
-}
+
 
 h1 {
   margin-top: 0px;
@@ -273,6 +353,3 @@ h1 {
     margin-top: 20px;
   }
 }
-/*# sourceMappingURL=style.css.map */
-
-/*# sourceMappingURL=styles.css.map */

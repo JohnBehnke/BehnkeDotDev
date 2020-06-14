@@ -14,7 +14,7 @@ struct BehnkeDotDev: Website {
         // Add the sections that you want your website to contain here:
         case about
         case posts
-        case astrophotography
+        case gallery
     }
 
     struct ItemMetadata: WebsiteItemMetadata {

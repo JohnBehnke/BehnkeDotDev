@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 
 import PackageDescription
 
@@ -8,8 +8,8 @@ let package = Package(
         .executable(name: "BehnkeDotDev", targets: ["BehnkeDotDev"])
     ],
     dependencies: [
-        .package(url: "https://github.com/johnsundell/publish.git", from: "0.3.0"),
-        .package(url: "https://github.com/johnbehnke/s3publishdeploy", from: "0.1.0")
+      .package(name: "Publish", url: "https://github.com/johnsundell/publish.git", from: "0.3.0"),
+      .package(name: "S3PublishDeploy", url: "https://github.com/johnbehnke/s3publishdeploy", from: "0.1.0")
         
     ],
     targets: [
