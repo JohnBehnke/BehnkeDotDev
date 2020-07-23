@@ -15,7 +15,6 @@ import S3PublishDeploy
 //  }
 //}
 
-
 // This will generate your website using the built-in Foundation theme:
 
 try BehnkeDotDev().publish(using: [

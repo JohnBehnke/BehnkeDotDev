@@ -55,6 +55,10 @@
     background: var(--red-primary);
   }
 }
+
+img + em{
+  text-align: center;
+}
 @media (prefers-color-scheme: light) {
   body {
     background-color: white;
@@ -195,6 +199,24 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.gallery_preview img {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.galery_preview_description {
+  display: flex;
+  justify-content: center;
+  margin-
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .nav__link {

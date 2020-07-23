@@ -37,8 +37,8 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
           .id("content"),
           .div(
             .class("main-text"),
-            .itemList(for: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]), on: context.site, title: "Recent Posts"),
-            .itemList(for: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]), on: context.site, title: "Recent Gallery Images")
+            .itemList(for: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]), on: context.site, section: BehnkeDotDev.SectionID.posts, title: "Recent Posts"),
+            .itemList(for: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]), on: context.site, section: BehnkeDotDev.SectionID.gallery ,title: "Recent Gallery Images")
           )
         ),
         .footer(for: context.site)
@@ -65,7 +65,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
           .id("content"),
           .div(
             .class("main-text"),
-            .itemList(for: section.items, on: context.site, title: section.title)
+            .itemList(for: section.items, on: context.site, section: section.id ,title: section.title)
 
           )
         ),
@@ -119,7 +119,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
         .header(for: context.site),
         .if(page.path == "about", .about(for: context.site, page: page)),
         //        .sidebar(for: context.site),
-//        .wrapper(.contentBody(page.body)),
+        //        .wrapper(.contentBody(page.body)),
         .footer(for: context.site)
       )
     )
@@ -176,6 +176,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
               order: .descending
             ),
             on: context.site,
+            section: BehnkeDotDev.SectionID.posts,
             title: "test"
           )
         ),
@@ -191,18 +192,36 @@ private extension Node where Context == HTML.BodyContext {
     .div(.class("wrapper"), .group(nodes))
   }
 
-  static func itemList(for items: [Item<BehnkeDotDev>], on site: BehnkeDotDev, title: String) -> Node {
+  static func itemList(for items: [Item<BehnkeDotDev>], on site: BehnkeDotDev, section: BehnkeDotDev.SectionID, title: String) -> Node {
     return
-      .div(
-        .class("post-preview-list"),
-        .h1(
-          .class("content-list-head"),
-          .text(title)
-        ),
-        .forEach(items) { item in
-          postPreview(for: item, on: site)
-        }
+      .if(section == .posts,
+          .div(
+            .class("post-preview-list"),
+            .h1(
+              .class("content-list-head"),
+              .text(title)
+            ),
+            .forEach(items) { item in
+              postPreview(for: item, on: site)
+            }
+        ), else:
+        .div(
+          .h1(
+            .class("content-list-head"),
+            .text(title)
+          ),
+          .div(
+            .class("gallery-preview-list"),
+              .div(
+                .class("row"),
+                .forEach(items) { item in
+                  galleryPreview(for: item, on: site)
+                }
+              )
+          )
+        )
     )
+
   }
 }
 public extension DateFormatter {
