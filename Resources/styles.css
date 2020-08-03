@@ -201,6 +201,10 @@ img + em{
   margin-right: auto;
 }
 
+.gallery_preview {
+  width: 200px;
+  padding: 25px;
+}
 .gallery_preview img {
   width: 100%;
   display: block;
@@ -208,10 +212,17 @@ img + em{
   margin-right: auto;
 
 }
-.galery_preview_description {
-  display: flex;
-  justify-content: center;
-  margin-
+.gallery_preview_description {
+  text-align: center;
+}
+
+.gallery_preview_description h3 {
+  margin: 5px;
+}
+.gallery_preview__date--preview {
+  font-style: italic;
+  font-size: 85%;
+  margin: 5px;
 }
 
 .row {

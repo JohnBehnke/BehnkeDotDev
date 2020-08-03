@@ -81,7 +81,6 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .head(for: item, on: context.site),
 
       .body(
-        //        .sidebar(for: context.site),
         .header(for: context.site),
         .div(
           .id("content"),
