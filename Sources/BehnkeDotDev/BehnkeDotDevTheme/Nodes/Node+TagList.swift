@@ -16,7 +16,7 @@ extension Node where Context == HTML.BodyContext {
         .a(
           .class("tag \(tag.string.lowercased())"),
           .href(site.path(for: tag)),
-          .text(tag.string)
+          .text(tag.string.capitalized)
         )
       }
     )

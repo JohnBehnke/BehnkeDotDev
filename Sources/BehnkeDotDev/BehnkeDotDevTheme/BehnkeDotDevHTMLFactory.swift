@@ -131,20 +131,18 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .head(for: page, on: context.site),
       .body(
         //        .header(for: context, selectedSection: nil),
+        .header(for: context.site),
         .wrapper(
           .h1("Browse all tags"),
-          .ul(
             .class("all-tags"),
             .forEach(page.tags.sorted()) { tag in
-              .li(
-                .class("tag"),
+                
                 .a(
+                  .class("tag \(tag.string.lowercased())"),
                   .href(context.site.path(for: tag)),
-                  .text(tag.string)
+                  .text(tag.string.capitalized)
                 )
-              )
             }
-          )
         ),
         .footer(for: context.site)
       )
@@ -158,10 +156,11 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .head(for: page, on: context.site),
       .body(
         //        .header(for: context, selectedSection: nil),
+        .header(for: context.site),
         .wrapper(
           .h1(
             "Tagged with ",
-            .span(.class("tag"), .text(page.tag.string))
+            .span(.class("tag \(page.tag.string.lowercased())"), .text(page.tag.string.capitalized))
           ),
           .a(
             .class("browse-all"),

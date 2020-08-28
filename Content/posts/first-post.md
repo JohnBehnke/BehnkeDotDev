@@ -2,7 +2,7 @@
 title: Creating a website in Swift via Publish
 date: 2020-05-02 19:56
 description: I'm going to describe the trials and tribulations of using John Sundell's Publish to recrete my website in Swift. 
-tags: Development, Tutorial
+tags: development, tutorial
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mattis dui in mi suscipit, eget convallis lorem viverra. Nulla facilisi. Praesent tristique nibh nec est bibendum consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut dapibus sed elit eu posuere. Nam porttitor purus in consequat accumsan. Cras auctor faucibus maximus. Integer gravida neque nec neque ullamcorper aliquet. Morbi nec magna at sem fermentum eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vel fermentum nisl.

@@ -2,7 +2,9 @@
 title: Rossette Nebula
 date: 2020-05-10 19:56
 image: /images/astrophotography/Rossette-Nebula.jpg
-tags: astrophotography
+tags: astrophotography, development
+next:
+previous:
 ---
 
 ![alt text](/images/astrophotography/Rossette-Nebula.jpg "Logo Title Text 1")

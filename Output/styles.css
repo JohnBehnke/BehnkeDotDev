@@ -360,8 +360,9 @@ h1 {
 
 @media (min-width: 35.625em), (min-width: 45.625em), (min-width: 12.4375em) {
   .main-text {
-    /*    padding: 5%;*/
+/*        padding: 5%;*/
   }
+  
 }
 .main-text-404 {
   font-size: 30px;
@@ -374,6 +375,8 @@ h1 {
   .main-text-404 {
     padding: 5%;
   }
+  
+  
 }
 .contact {
   text-align: center;
@@ -386,3 +389,15 @@ h1 {
     margin-top: 20px;
   }
 }
+
+@media (max-width: 52em) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
+
+
