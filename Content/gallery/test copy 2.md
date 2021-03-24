@@ -2,7 +2,7 @@
 title: Rossette Nebula
 date: 2020-05-10 19:56
 image: /images/astrophotography/Rossette-Nebula.jpg
-tags: astrophotography, development
+tags: astrophotography, foo, bar, baz, zaz
 next:
 previous:
 ---

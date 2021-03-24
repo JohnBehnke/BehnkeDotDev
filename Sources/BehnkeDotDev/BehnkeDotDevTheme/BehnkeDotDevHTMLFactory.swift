@@ -9,44 +9,44 @@ import Publish
 import Plot
 
 struct BehnkeDotDevHTMLFactory: HTMLFactory {
-
+  
   func makeIndexHTML(for index: Index,
                      context: PublishingContext<BehnkeDotDev>) throws -> HTML {
-
+    
     let allItems =  context.allItems(sortedBy: \.date, order: .descending)
-    let allBlogPosts = allItems.filter({ (item: Item) -> Bool in
-      item.sectionID == .posts
-    })
-    let allGalleryImages = allItems.filter({ (item: Item) -> Bool in
-      item.sectionID == .gallery
-    })
+    let allBlogPosts = allItems.filter{$0.sectionID == .posts}
+    let allGalleryImages = allItems.filter{$0.sectionID == .gallery}
+    let aboutPage = context.pages["about"]
+    
     return HTML(
       .lang(context.site.language),
       .head(for: index, on: context.site),
-      .head(
-        .script(
-          .defer(),
-          .src("https://use.fontawesome.com/releases/v5.0.6/js/all.js")
-        )
-      ),
-
       .body(
-        //        .sidebar(for: context.site),
-        .header(for: context.site),
-        .div(
-          .id("content"),
-          .div(
-            .class("main-text"),
-            .itemList(for: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]), on: context.site, section: BehnkeDotDev.SectionID.posts, title: "Recent Posts"),
-            .itemList(for: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]), on: context.site, section: BehnkeDotDev.SectionID.gallery ,title: "Recent Gallery Images")
-          )
+        .if(allItems.count == 0,
+            .about(for: context.site, page: aboutPage!),
+            else:
+              .group(
+                .header(for: context.site),
+                .div(
+                  .id("content"),
+                  .div(
+                    .class("main-text"),
+                    
+                    .itemList(for: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]),
+                              on: context.site, section: BehnkeDotDev.SectionID.posts,
+                              title: "Recent Posts"),
+                    .itemList(for: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]),
+                              on: context.site, section: BehnkeDotDev.SectionID.gallery,
+                              title: "Recent Gallery Images")
+                  )
+                )
+              )
         ),
         .footer(for: context.site)
       )
-
     )
   }
-
+  
   func makeSectionHTML(for section: Section<BehnkeDotDev>,
                        context: PublishingContext<BehnkeDotDev>) throws -> HTML {
     HTML(
@@ -59,27 +59,26 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
         )
       ),
       .body(
-        //        .sidebar(for: context.site),
         .header(for: context.site),
         .div(
           .id("content"),
           .div(
             .class("main-text"),
             .itemList(for: section.items, on: context.site, section: section.id ,title: section.title)
-
+            
           )
         ),
         .footer(for: context.site)
       )
     )
   }
-
+  
   func makeItemHTML(for item: Item<BehnkeDotDev>,
                     context: PublishingContext<BehnkeDotDev>) throws -> HTML {
     HTML(
       .lang(context.site.language),
       .head(for: item, on: context.site),
-
+      
       .body(
         .header(for: context.site),
         .div(
@@ -102,7 +101,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       )
     )
   }
-
+  
   func makePageHTML(for page: Page,
                     context: PublishingContext<BehnkeDotDev>) throws -> HTML {
     HTML(
@@ -123,7 +122,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       )
     )
   }
-
+  
   func makeTagListHTML(for page: TagListPage,
                        context: PublishingContext<BehnkeDotDev>) throws -> HTML? {
     HTML(
@@ -134,21 +133,20 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
         .header(for: context.site),
         .wrapper(
           .h1("Browse all tags"),
-            .class("all-tags"),
-            .forEach(page.tags.sorted()) { tag in
-                
-                .a(
-                  .class("tag \(tag.string.lowercased())"),
-                  .href(context.site.path(for: tag)),
-                  .text(tag.string.capitalized)
-                )
-            }
+          .class("all-tags"),
+          .forEach(page.tags.sorted()) { tag in
+            .a(
+              .class("tag \(tag.string.lowercased())"),
+              .href(context.site.path(for: tag)),
+              .text(tag.string.capitalized)
+            )
+          }
         ),
         .footer(for: context.site)
       )
     )
   }
-
+  
   func makeTagDetailsHTML(for page: TagDetailsPage,
                           context: PublishingContext<BehnkeDotDev>) throws -> HTML? {
     HTML(
@@ -175,7 +173,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
             ),
             on: context.site,
             section: BehnkeDotDev.SectionID.posts,
-            title: "test"
+            title: ""
           )
         ),
         .footer(for: context.site)
@@ -189,37 +187,52 @@ private extension Node where Context == HTML.BodyContext {
   static func wrapper(_ nodes: Node...) -> Node {
     .div(.class("wrapper"), .group(nodes))
   }
-
+  
   static func itemList(for items: [Item<BehnkeDotDev>], on site: BehnkeDotDev, section: BehnkeDotDev.SectionID, title: String) -> Node {
     return
-      .if(section == .posts,
-          .div(
-            .class("post-preview-list"),
-            .h1(
-              .class("content-list-head"),
-              .text(title)
-            ),
-            .forEach(items) { item in
-              postPreview(for: item, on: site)
-            }
-        ), else:
-        .div(
-          .h1(
-            .class("content-list-head"),
-            .text(title)
-          ),
-          .div(
-            .class("gallery-preview-list"),
-              .div(
-                .class("row"),
-                .forEach(items) { item in
-                  galleryPreview(for: item, on: site)
-                }
-              )
-          )
-        )
-    )
-
+      .if(items.count == 0, .empty, else:
+            .if(section == .posts,
+                .div(
+                  .class("preview-list"),
+                  .h1(
+                    .class("content-list-head"),
+                    .text(title)
+                  ),
+                  .forEach(items) { item in
+                    postPreview(for: item, on: site)
+                  }
+                ), else:
+                  .if(section == .gallery,
+                      .div(
+                        .class("preview-list"),
+                        .h1(
+                          .class("content-list-head"),
+                          .text(title)
+                        ),
+                        .div(
+                          .class("row"),
+                          .forEach(items) { item in
+                            galleryPreview(for: item, on: site)
+                          }
+                        )
+                      ), else: .div(
+                        .h1(
+                          .class("content-list-head"),
+                          .text(title)
+                        ),
+                        .div(
+                          .class("gallery-preview-list"),
+                          .div(
+                            .class("row"),
+                            .forEach(items) { item in
+                              galleryPreview(for: item, on: site)
+                            }
+                          )
+                        )
+                      )
+                  )
+            )
+      )
   }
 }
 public extension DateFormatter {

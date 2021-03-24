@@ -20,7 +20,7 @@ extension Node where Context == HTML.BodyContext {
             .text("Hey, I'm John")
           ),
           .img(
-            .class("waving-hand hidden-on-smaller"),
+            .class("waving-hand hidden-on-small"),
             .src("/images/waving-hand.png")
           )
           ),

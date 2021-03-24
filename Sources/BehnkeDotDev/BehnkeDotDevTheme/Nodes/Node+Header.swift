@@ -9,7 +9,6 @@ import Plot
 
 extension Node where Context == HTML.BodyContext {
   private static var sections: [BehnkeDotDev.SectionID] { BehnkeDotDev.SectionID.allCases  }
-
   static func header(for site: BehnkeDotDev) -> Node {
     return .div(
       .class("header"),
