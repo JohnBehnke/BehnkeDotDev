@@ -88,4 +88,5 @@ try BehnkeDotDev().publish(using: [
   .generateRSSFeed(including: Set([BehnkeDotDev.SectionID.gallery]), config: RSSFeedConfiguration(targetPath: "astro.rss")),
   .generateRSSFeed(including: Set(BehnkeDotDev.SectionID.allCases), config: RSSFeedConfiguration(targetPath: "all.rss")),
   .generateSiteMap()
+//  .deploy(using: .s3(<#T##bucket: String##String#>))
 ])

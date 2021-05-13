@@ -23,6 +23,11 @@ struct BehnkeDotDev: Website {
   
   let sectionsToDisplay: [SectionID] = [.posts,.gallery]
   
+  enum Layout {
+    case masonry
+    case flex
+  }
+  
   
   // Update these properties to configure your website:
   var url = URL(string: "https://behnke.dev")!

@@ -12,35 +12,17 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
   
   func makeIndexHTML(for index: Index,
                      context: PublishingContext<BehnkeDotDev>) throws -> HTML {
-    
+
     let allItems =  context.allItems(sortedBy: \.date, order: .descending)
-    let allBlogPosts = allItems.filter{$0.sectionID == .posts}
-    let allGalleryImages = allItems.filter{$0.sectionID == .gallery}
     let aboutPage = context.pages["about"]
-    
     return HTML(
       .lang(context.site.language),
       .head(for: index, on: context.site),
       .body(
+        .header(for: context.site),
         .if(allItems.count == 0,
             .about(for: context.site, page: aboutPage!),
-            else:
-              .group(
-                .header(for: context.site),
-                .div(
-                  .id("content"),
-                  .div(
-                    .class("main-text"),
-                    
-                    .itemList(for: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]),
-                              on: context.site, section: BehnkeDotDev.SectionID.posts,
-                              title: "Recent Posts"),
-                    .itemList(for: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]),
-                              on: context.site, section: BehnkeDotDev.SectionID.gallery,
-                              title: "Recent Gallery Images")
-                  )
-                )
-              )
+            else: .index(for: context.site, items: allItems)
         ),
         .footer(for: context.site)
       )
@@ -52,22 +34,9 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .head(for: section, on: context.site),
-      .head(
-        .script(
-          .defer(),
-          .src("https://use.fontawesome.com/releases/v5.0.6/js/all.js")
-        )
-      ),
       .body(
         .header(for: context.site),
-        .div(
-          .id("content"),
-          .div(
-            .class("main-text"),
-            .itemList(for: section.items, on: context.site, section: section.id ,title: section.title)
-            
-          )
-        ),
+        .section(for: context.site, section: section),
         .footer(for: context.site)
       )
     )
@@ -79,45 +48,41 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .lang(context.site.language),
       .head(for: item, on: context.site),
       
-      .body(
-        .header(for: context.site),
-        .div(
-          .id("content"),
-          .div(
-            .class("main-text item-page"),
-            .h2(
-              .class("post__title"),
-              .text(item.title)
-            ),
-            .p(
-              .class("post__date"),
-              .text( DateFormatter.shortDate.string(from: item.date))
-            ),
-            .tagList(for: item, on: context.site, center: true),
-            .div(.class("post__text"), .contentBody(item.content.body))
-          )
-        ),
-        .footer(for: context.site)
-      )
+      .body {
+        SiteHeader(context: context)
+        Div{
+          Div {
+            H2(item.title)
+              .class("post__title")
+            Paragraph(DateFormatter.shortDate.string(from: item.date))
+              .class("post__date")
+            TagList(context: context, item: item, center: true)
+            Div(item.content.body)
+              .class("post__text")
+          }.class("main-text item-page")
+        }.id("")
+        SiteFooter(context: context)
+      }
+      
     )
   }
   
   func makePageHTML(for page: Page,
                     context: PublishingContext<BehnkeDotDev>) throws -> HTML {
-    HTML(
+    var nodeToRender:Node<HTML.BodyContext>
+    switch page.path {
+    case "about":
+      nodeToRender = Node.about(for: context.site, page: page)
+    default:
+      nodeToRender = Node.about(for: context.site, page: page)
+    }
+    
+    return HTML(
       .lang(context.site.language),
       .head(for: page, on: context.site),
-      .head(
-        .script(
-          .defer(),
-          .src("https://use.fontawesome.com/releases/v5.0.6/js/all.js")
-        )
-      ),
       .body(
         .header(for: context.site),
-        .if(page.path == "about", .about(for: context.site, page: page)),
-        //        .sidebar(for: context.site),
-        //        .wrapper(.contentBody(page.body)),
+        nodeToRender,
         .footer(for: context.site)
       )
     )
@@ -128,22 +93,16 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .head(for: page, on: context.site),
-      .body(
-        //        .header(for: context, selectedSection: nil),
-        .header(for: context.site),
-        .wrapper(
-          .h1("Browse all tags"),
-          .class("all-tags"),
-          .forEach(page.tags.sorted()) { tag in
-            .a(
-              .class("tag \(tag.string.lowercased())"),
-              .href(context.site.path(for: tag)),
-              .text(tag.string.capitalized)
-            )
-          }
-        ),
-        .footer(for: context.site)
-      )
+      .body {
+        SiteHeader(context: context)
+        H1("Browse all Tags")
+          .class("all-tags")
+        for tag in page.tags.sorted() {
+          Link(tag.string.capitalized, url: "\(context.site.path(for: tag))")
+            .class("tag \(tag.string.lowercased())")
+        }
+        SiteFooter(context: context)
+      }
     )
   }
   
@@ -153,9 +112,9 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
       .lang(context.site.language),
       .head(for: page, on: context.site),
       .body(
-        //        .header(for: context, selectedSection: nil),
-        .header(for: context.site),
-        .wrapper(
+//        .header(for: context.site),
+        .component(SiteHeader(context: context)),
+        .group(
           .h1(
             "Tagged with ",
             .span(.class("tag \(page.tag.string.lowercased())"), .text(page.tag.string.capitalized))
@@ -182,59 +141,6 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
   }
 }
 
-private extension Node where Context == HTML.BodyContext {
-  
-  static func wrapper(_ nodes: Node...) -> Node {
-    .div(.class("wrapper"), .group(nodes))
-  }
-  
-  static func itemList(for items: [Item<BehnkeDotDev>], on site: BehnkeDotDev, section: BehnkeDotDev.SectionID, title: String) -> Node {
-    return
-      .if(items.count == 0, .empty, else:
-            .if(section == .posts,
-                .div(
-                  .class("preview-list"),
-                  .h1(
-                    .class("content-list-head"),
-                    .text(title)
-                  ),
-                  .forEach(items) { item in
-                    postPreview(for: item, on: site)
-                  }
-                ), else:
-                  .if(section == .gallery,
-                      .div(
-                        .class("preview-list"),
-                        .h1(
-                          .class("content-list-head"),
-                          .text(title)
-                        ),
-                        .div(
-                          .class("row"),
-                          .forEach(items) { item in
-                            galleryPreview(for: item, on: site)
-                          }
-                        )
-                      ), else: .div(
-                        .h1(
-                          .class("content-list-head"),
-                          .text(title)
-                        ),
-                        .div(
-                          .class("gallery-preview-list"),
-                          .div(
-                            .class("row"),
-                            .forEach(items) { item in
-                              galleryPreview(for: item, on: site)
-                            }
-                          )
-                        )
-                      )
-                  )
-            )
-      )
-  }
-}
 public extension DateFormatter {
   static var shortDate: DateFormatter = {
     let formatter = DateFormatter()

@@ -11,46 +11,46 @@
     background-color: #17181c;
     color: white;
   }
-
+  
   .greeting__text {
     background-image: linear-gradient(90deg, var(--red-primary), var(--red-secondary));
   }
-
+  
   .intro {
     color: white;
   }
-
+  
   .fa-lg {
     color: white;
   }
-
+  
   .link {
     color: white;
   }
-
+  
   .post__title {
     color: var(--red-primary);
   }
   .post__link {
     color: var(--red-primary);
   }
-
+  
   .post__date {
     color: white;
   }
-
+  
   .nav__link {
     color: white;
   }
   .nav__seperator {
     color: var(--red-primary);
   }
-
+  
   a {
     color: var(--red-primary);
     text-decoration: none;
   }
-
+  
   .tag {
     background: var(--red-primary);
   }
@@ -64,44 +64,44 @@ img + em{
     background-color: white;
     color: black;
   }
-
+  
   .greeting__text {
     background-image: linear-gradient(90deg, var(--blue-primary), var(--blue-secondary));
   }
-
+  
   .fa-lg {
     color: black;
   }
-
+  
   .link {
     color: black;
   }
-
+  
   a {
     color: var(--blue-primary);
     text-decoration: none;
   }
-
+  
   .post__title {
     color: var(--blue-primary);
   }
   .post__link {
     color: var(--blue-primary);
   }
-
+  
   .post__date {
     color: black;
   }
-
-
-
+  
+  
+  
   .nav__link {
     color: black;
   }
   .nav__seperator {
     color: var(--blue-primary);
   }
-
+  
   .tag {
     background: var(--blue-primary);
   }
@@ -200,20 +200,32 @@ img + em{
   margin-right: auto;
 }
 
-.gallery_preview {
-  display: flex;
- flex-direction: column;
- margin: 20px;
+.gallery_preview_flex {
+  max-width: 200px;
+  max-height: 200px;
+  padding: 20px;
 }
-.gallery_preview img {
+.gallery_preview_flex img {
   width: 100%;
-  height: 50%;
+  height: 100%;
   object-fit: cover;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-height: 200px;
+  
+}
 
+
+.gallery_preview_masonry {
+  display: inline-block;
+  padding: 1em;
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+.gallery_preview_masonry img {
+  object-fit: cover;
+  max-width:100%;
+  
 }
 .gallery_preview_description {
   text-align: center;
@@ -228,10 +240,15 @@ img + em{
   margin: 5px;
 }
 
+.masonry {
+  column-count: 3;
+  column-gap: 1em;
+}
+
 .row {
-  display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav__link {
@@ -364,7 +381,7 @@ h1 {
 
 @media (min-width: 35.625em), (min-width: 45.625em), (min-width: 12.4375em) {
   .main-text {
-/*        padding: 5%;*/
+    /*        padding: 5%;*/
   }
   
 }
