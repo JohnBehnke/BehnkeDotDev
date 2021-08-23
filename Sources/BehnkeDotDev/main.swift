@@ -81,7 +81,7 @@ try BehnkeDotDev().publish(using: [
   .installPlugin(.checkGalleryPostForValidTags),
   .installPlugin(.ensureAllITagsAreLowercase),
   .addPage(Page(path: "404", content: Content(title: "404 Not Found", description: "404", body: Content.Body(html: "hello")))),
-  .addPage(Page(path: "cage-page", content: Content(title: "404 Not Found", description: "404", body: Content.Body(html: "hello")))),
+  .addPage(Page(path: "cage-page", content: Content(title: "Cage", description: "404", body: Content.Body(html: "cage")))),
   .generateHTML(withTheme: .behnkeDotDev),
   //  .generateRSSFeed(including: Set(BehnkeDotDev.SectionID.allCases)),
   .generateRSSFeed(including: Set([BehnkeDotDev.SectionID.posts]), config: RSSFeedConfiguration(targetPath: "post.rss")),

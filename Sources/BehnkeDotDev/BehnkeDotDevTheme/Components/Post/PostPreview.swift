@@ -11,12 +11,12 @@ import Publish
 
 struct PostPreview<Site: Website>: Component {
   var context: PublishingContext<Site>
-  var item: Item<Site>
+  var item: Item<BehnkeDotDev>
   var body: Component {
     Article {
       Header {
         H2 {
-          Link(item.title, url: "\(item.path)")
+          Link(item.title, url: item.path.absoluteString)
             .class("post__link")
         }.class("post__title--preview")
       }

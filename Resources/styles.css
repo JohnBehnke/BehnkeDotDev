@@ -239,6 +239,9 @@ img + em{
   font-size: 85%;
   margin: 5px;
 }
+.recent-gallery {
+  margin-bottom: 200px;
+}
 
 .masonry {
   column-count: 3;
@@ -361,8 +364,20 @@ h1 {
   margin-bottom: 0px;
 }
 
+footer {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  color: #757575;
+  line-height: 1.5em;
+}
+
+footer > p {
+  margin: 0px;
+}
+
 .greeting__text {
-  margin-bottom: 0px;
+  margin-bottom: 10%;
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -375,13 +390,15 @@ h1 {
   }
 }
 .main-text {
-  /*  font-size: 20px;*/
+  font-size: 20px;
   letter-spacing: 1px;
+  line-height: 1.5;
+  text-align: center;
 }
 
 @media (min-width: 35.625em), (min-width: 45.625em), (min-width: 12.4375em) {
   .main-text {
-    /*        padding: 5%;*/
+            padding: 5%;
   }
   
 }
@@ -418,6 +435,7 @@ h1 {
     justify-content: center;
   }
 }
+
 
 
 

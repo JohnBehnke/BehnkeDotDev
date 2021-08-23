@@ -11,7 +11,7 @@ import Publish
 
 struct PostList<Site: Website>: Component {
   var context: PublishingContext<Site>
-  var items: [Item<Site>]
+  var items: [Item<BehnkeDotDev>]
   var title: String
   var body: Component {
     Div {

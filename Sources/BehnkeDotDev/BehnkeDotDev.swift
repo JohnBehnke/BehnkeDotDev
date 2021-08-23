@@ -13,6 +13,7 @@ struct BehnkeDotDev: Website {
   enum SectionID: String, WebsiteSectionID {
     case posts
     case gallery
+    case projects
     case about
   }
   
@@ -20,8 +21,8 @@ struct BehnkeDotDev: Website {
     var next: String?
     var previous: String?
   }
-  
-  let sectionsToDisplay: [SectionID] = [.posts,.gallery]
+
+  static let sectionsToDisplay: Set<String> = []
   
   enum Layout {
     case masonry
@@ -31,9 +32,9 @@ struct BehnkeDotDev: Website {
   
   // Update these properties to configure your website:
   var url = URL(string: "https://behnke.dev")!
-  var title = "Test"
+  var title = "Behnke"
   var name = "John Behnke"
-  var description = "A description of PersssssssssonalSite"
+  var description = "John Behnke's personal website"
   var language: Language { .english }
   var imagePath: Path? { .some("images/social-previews/home.png") }
   

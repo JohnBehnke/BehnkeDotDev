@@ -18,14 +18,15 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     return HTML(
       .lang(context.site.language),
       .head(for: index, on: context.site),
-      .body(
-        .header(for: context.site),
-        .if(allItems.count == 0,
-            .about(for: context.site, page: aboutPage!),
-            else: .index(for: context.site, items: allItems)
-        ),
-        .footer(for: context.site)
-      )
+      .body{
+        SiteHeader(context: context)
+        if(allItems.isEmpty) {
+          AboutPage(context: context, page: aboutPage!)
+        } else {
+          IndexPage(context: context, items: allItems)
+        }
+        SiteFooter(context: context)
+      }
     )
   }
   
@@ -34,11 +35,11 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .head(for: section, on: context.site),
-      .body(
-        .header(for: context.site),
-        .section(for: context.site, section: section),
-        .footer(for: context.site)
-      )
+      .body {
+        SiteHeader(context: context)
+        SiteSection(context: context, section: section)
+        SiteFooter(context: context)
+      }
     )
   }
   
@@ -69,22 +70,22 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
   
   func makePageHTML(for page: Page,
                     context: PublishingContext<BehnkeDotDev>) throws -> HTML {
-    var nodeToRender:Node<HTML.BodyContext>
+    var pageToRender:Component
     switch page.path {
     case "about":
-      nodeToRender = Node.about(for: context.site, page: page)
+      pageToRender = AboutPage(context: context, page: page)
     default:
-      nodeToRender = Node.about(for: context.site, page: page)
+      pageToRender = AboutPage(context: context, page: page)
     }
     
     return HTML(
       .lang(context.site.language),
       .head(for: page, on: context.site),
-      .body(
-        .header(for: context.site),
-        nodeToRender,
-        .footer(for: context.site)
-      )
+      .body {
+        SiteHeader(context: context)
+        pageToRender
+        SiteFooter(context: context)
+      }
     )
   }
   
@@ -98,9 +99,10 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
         H1("Browse all Tags")
           .class("all-tags")
         for tag in page.tags.sorted() {
-          Link(tag.string.capitalized, url: "\(context.site.path(for: tag))")
+          Link(tag.string.capitalized, url: context.site.path(for: tag).absoluteString)
             .class("tag \(tag.string.lowercased())")
         }
+
         SiteFooter(context: context)
       }
     )
@@ -111,32 +113,43 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .head(for: page, on: context.site),
-      .body(
+//      .body(
 //        .header(for: context.site),
-        .component(SiteHeader(context: context)),
-        .group(
-          .h1(
-            "Tagged with ",
-            .span(.class("tag \(page.tag.string.lowercased())"), .text(page.tag.string.capitalized))
-          ),
-          .a(
-            .class("browse-all"),
-            .text("Browse all tags"),
-            .href(context.site.tagListPath)
-          ),
-          .itemList(
-            for: context.items(
-              taggedWith: page.tag,
-              sortedBy: \.date,
-              order: .descending
-            ),
-            on: context.site,
-            section: BehnkeDotDev.SectionID.posts,
-            title: ""
-          )
-        ),
-        .footer(for: context.site)
-      )
+//        .component(SiteHeader(context: context)),
+//        .group(
+//          .h1(
+//            "Tagged with ",
+//            .span(.class("tag \(page.tag.string.lowercased())"), .text(page.tag.string.capitalized))
+//          ),
+//          .a(
+//            .class("browse-all"),
+//            .text("Browse all tags"),
+//            .href(context.site.tagListPath)
+//          ),
+//          .itemList(
+//            for: context.items(
+//              taggedWith: page.tag,
+//              sortedBy: \.date,
+//              order: .descending
+//            ),
+//            on: context.site,
+//            section: BehnkeDotDev.SectionID.posts,
+//            title: ""
+//          )
+//        ),
+//        .footer(for: context.site)
+//      )
+      .body {
+        SiteHeader(context: context)
+      
+        H1(ComponentGroup(members: [
+          Text("Tagged with "),
+          Span(page.tag.string.capitalized).class("tag \(page.tag.string.lowercased())")
+        ]))
+        Link("Browse all tags", url: context.site.tagListPath.absoluteString)
+        ItemList(context: context, items: context.items(taggedWith: page.tag, sortedBy: \.date, order: .descending), section: BehnkeDotDev.SectionID.posts, title: "")
+        SiteFooter(context: context)
+      }
     )
   }
 }
