@@ -15,11 +15,11 @@ struct IndexPage<Site: Website>: Component {
   
   var body: Component {
     let allBlogPosts = items.filter{$0.sectionID == .posts}
-    let allGalleryImages = items.filter{$0.sectionID == .gallery}
+    let allGalleryImages = items.filter{$0.sectionID == .projects}
     return Div {
       Div {
         ItemList(context: context, items: Array(allBlogPosts[0..<(allBlogPosts.count > 2 ? 3 : allBlogPosts.count)]), section: BehnkeDotDev.SectionID.posts, title: "Recent Posts")
-        ItemList(context: context, items: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]), section: BehnkeDotDev.SectionID.gallery, title: "Recent Gallery Images")
+        ItemList(context: context, items: Array(allGalleryImages[0..<(allGalleryImages.count > 2 ? 3 : allGalleryImages.count)]), section: BehnkeDotDev.SectionID.projects, title: "Recent Gallery Images")
       }.class("main-text")
     }.id("content")
   }

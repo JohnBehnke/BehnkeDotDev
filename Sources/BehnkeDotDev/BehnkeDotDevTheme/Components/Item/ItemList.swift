@@ -17,7 +17,7 @@ struct ItemList<Site: Website>: Component {
   var layout: BehnkeDotDev.Layout = .flex
   var body: Component {
     if items.isEmpty { return EmptyComponent() }
-    return section == .gallery
+    return section == .projects
     ? GalleryList(context: context, items: items, layout: layout, title: title)
       : PostList(context: context, items: items, title: title)
   }

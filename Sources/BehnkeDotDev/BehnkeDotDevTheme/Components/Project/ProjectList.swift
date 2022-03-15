@@ -21,9 +21,9 @@ struct GalleryList<Site: Website>: Component {
       }.class("preview-list"),
       Div {
         for item in items {
-          GalleryPreview(context: context, item: item, layout: layout)
+          ProjectPreview(context: context, item: item, layout: layout)
         }
-      }.class(layout == .masonry ? "masonry" : "row recent-gallery")
+      }
     ])
   }
 }

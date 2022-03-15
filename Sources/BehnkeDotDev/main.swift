@@ -80,12 +80,12 @@ try BehnkeDotDev().publish(using: [
   .installPlugin(.checkBlogPostForValidTags),
   .installPlugin(.checkGalleryPostForValidTags),
   .installPlugin(.ensureAllITagsAreLowercase),
-  .addPage(Page(path: "404", content: Content(title: "404 Not Found", description: "404", body: Content.Body(html: "hello")))),
-  .addPage(Page(path: "cage-page", content: Content(title: "Cage", description: "404", body: Content.Body(html: "cage")))),
+//  .addPage(Page(path: "404", content: Content(title: "404 Not Found", description: "404", body: Content.Body(html: "hello")))),
+//  .addPage(Page(path: "cage-page", content: Content(title: "Cage", description: "404", body: Content.Body(html: "cage")))),
   .generateHTML(withTheme: .behnkeDotDev),
   //  .generateRSSFeed(including: Set(BehnkeDotDev.SectionID.allCases)),
   .generateRSSFeed(including: Set([BehnkeDotDev.SectionID.posts]), config: RSSFeedConfiguration(targetPath: "post.rss")),
-  .generateRSSFeed(including: Set([BehnkeDotDev.SectionID.gallery]), config: RSSFeedConfiguration(targetPath: "astro.rss")),
+  .generateRSSFeed(including: Set([BehnkeDotDev.SectionID.projects]), config: RSSFeedConfiguration(targetPath: "astro.rss")),
   .generateRSSFeed(including: Set(BehnkeDotDev.SectionID.allCases), config: RSSFeedConfiguration(targetPath: "all.rss")),
   .generateSiteMap()
 //  .deploy(using: .s3(<#T##bucket: String##String#>))

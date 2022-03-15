@@ -390,10 +390,9 @@ footer > p {
   }
 }
 .main-text {
-  font-size: 20px;
+/*  font-size: 20px;*/
   letter-spacing: 1px;
-  line-height: 1.5;
-  text-align: center;
+/*  text-align: center;*/
 }
 
 @media (min-width: 35.625em), (min-width: 45.625em), (min-width: 12.4375em) {
