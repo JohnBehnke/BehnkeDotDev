@@ -11,9 +11,10 @@ import Plot
 
 struct BehnkeDotDev: Website {
   enum SectionID: String, WebsiteSectionID {
+    case about
     case posts
     case projects
-    case about
+    
   }
   
   struct ItemMetadata: WebsiteItemMetadata {
@@ -24,10 +25,6 @@ struct BehnkeDotDev: Website {
 
   static let sectionsToDisplay: Set<String> = ["about", "posts", "projects"]
   
-  enum Layout {
-    case masonry
-    case flex
-  }
   
   
   // Update these properties to configure your website:

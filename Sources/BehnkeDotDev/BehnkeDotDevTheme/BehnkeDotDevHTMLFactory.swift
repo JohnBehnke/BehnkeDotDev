@@ -141,7 +141,6 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
 //      )
       .body {
         SiteHeader(context: context)
-      
         H1(ComponentGroup(members: [
           Text("Tagged with "),
           Span(page.tag.string.capitalized).class("tag \(page.tag.string.lowercased())")

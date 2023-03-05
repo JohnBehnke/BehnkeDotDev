@@ -35,7 +35,7 @@
     color: var(--red-primary);
   }
   
-  .post__date {
+  .__date {
     color: white;
   }
   
@@ -191,6 +191,34 @@ img + em{
 .post-text {
   line-height: 1.5;
 }
+
+
+
+
+
+
+
+.project__title {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+  text-align: center;
+}
+.project__title--preview {
+  text-align: left;
+  margin-bottom: 5px;
+}
+.project__text {
+  line-height: 1.5;
+}
+
+.project__description--preview {
+  text-align: left;
+  font-style: italic;
+  font-size: 85%;
+  margin-top: 0;
+}
+
+
 
 .item-page img {
   padding: 10px;

@@ -2,7 +2,6 @@ import Foundation
 import Publish
 import Plot
 import ShellOut
-import S3PublishDeploy
 
 let validBlogPostTags = Set(arrayLiteral: Tag("astrophotography"), Tag("tutorial"), Tag("development"))
 let validGalleryTags = Set(arrayLiteral: Tag("astrophotography"), Tag("tutorial"), Tag("development"))
@@ -88,5 +87,4 @@ try BehnkeDotDev().publish(using: [
   .generateRSSFeed(including: Set([BehnkeDotDev.SectionID.projects]), config: RSSFeedConfiguration(targetPath: "astro.rss")),
   .generateRSSFeed(including: Set(BehnkeDotDev.SectionID.allCases), config: RSSFeedConfiguration(targetPath: "all.rss")),
   .generateSiteMap()
-//  .deploy(using: .s3(<#T##bucket: String##String#>))
 ])
