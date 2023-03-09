@@ -16,7 +16,6 @@ struct ItemList<Site: Website>: Component {
   var title: String
   var body: Component {
     if items.isEmpty { return EmptyComponent() }
-    
     return PostList(context: context, items: items, title: title)
   }
   

@@ -14,7 +14,6 @@ struct SiteFooter<Site: Website>: Component {
   let currentYear = Calendar.current.component(.year, from: Date())
   var body: Component {
     Footer {
-      
       Paragraph {
         Text("Written in 100% Swift")
       }
@@ -25,9 +24,9 @@ struct SiteFooter<Site: Website>: Component {
       Paragraph {
         Text("Copyright © \(currentYear) John Behnke")
       }
-//      Paragraph {
-//        Link("RRS Feed", url: "/feed.rss")
-//      }
+//    Paragraph {
+//      Link("RRS Feed", url: "/feed.rss")
+//    }
     }
   }
 }

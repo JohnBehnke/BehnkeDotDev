@@ -15,13 +15,17 @@ struct AboutPage<Site: Website>: Component {
   var body: Component {
     Div {
       Div {
-        H1("Hey, I'm John").class("greeting__text")
-        Image("/images/waving-hand.png").class("waving-hand hidden-on-small")
+        H1("Hey, I'm John")
+          .class("greeting__text")
+        Image("/images/waving-hand.png")
+          .class("waving-hand hidden-on-small")
       }.class("greeting")
       Div {
-        Image("/images/profile.jpg").class("profile__image")
+        Image("/images/profile.jpg")
+          .class("profile__image")
       }.class("profile")
-      Div(page.body).class("main-text")
+      Div(page.body)
+        .class("main-text")
     }
   }
   

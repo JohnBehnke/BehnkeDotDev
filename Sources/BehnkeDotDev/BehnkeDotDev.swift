@@ -24,12 +24,10 @@ struct BehnkeDotDev: Website {
   }
 
   static let sectionsToDisplay: Set<String> = ["about", "posts", "projects"]
-  
-  
-  
+
   // Update these properties to configure your website:
   var url = URL(string: "https://behnke.dev")!
-  var title = "Behnke"
+  var title = "Behnke Dot Dev"
   var name = "John Behnke"
   var description = "John Behnke's personal website"
   var language: Language { .english }

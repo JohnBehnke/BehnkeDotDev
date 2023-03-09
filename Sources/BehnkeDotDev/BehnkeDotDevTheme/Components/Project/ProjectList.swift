@@ -15,11 +15,12 @@ struct GalleryList<Site: Website>: Component {
   var title: String
   var body: Component {    
     Div {
-      H1(title).class("content-list-head")
+      H1(title)
+        .class("content-list-head")
       for item in items {
         ProjectPreview(context: context, item: item)
       }
-    } .class("preview-list")
+    }.class("preview-list")
   }
 }
 

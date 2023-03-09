@@ -48,7 +48,6 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .head(for: item, on: context.site),
-      
       .body {
         SiteHeader(context: context)
         Div{
@@ -57,7 +56,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
               .class("post__title")
             Paragraph(DateFormatter.shortDate.string(from: item.date))
               .class("post__date")
-            TagList(context: context, item: item, center: true)
+//            TagList(context: context, item: item, center: true)
             Div(item.content.body)
               .class("post__text")
           }.class("main-text item-page")

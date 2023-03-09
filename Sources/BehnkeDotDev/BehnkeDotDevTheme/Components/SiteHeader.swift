@@ -24,7 +24,8 @@ struct SiteHeader<Site: Website>: Component {
               ComponentGroup(
                 members: [
                   Span("•").class("nav__seperator"),
-                  Link(section.id.rawValue.capitalized, url: section.path.absoluteString).class("nav__link")
+                  Link(section.id.rawValue.capitalized, url: section.path.absoluteString)
+                    .class("nav__link")
                 ]
               )
             }
