@@ -13,18 +13,13 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
   func makeIndexHTML(for index: Index,
                      context: PublishingContext<BehnkeDotDev>) throws -> HTML {
 
-    let allItems =  context.allItems(sortedBy: \.date, order: .descending)
     let aboutPage = context.pages["about"]
     return HTML(
       .lang(context.site.language),
       .head(for: index, on: context.site),
       .body{
         SiteHeader(context: context)
-        if(allItems.isEmpty) {
-          AboutPage(context: context, page: aboutPage!)
-        } else {
-          IndexPage(context: context, items: allItems)
-        }
+        AboutPage(context: context, page: aboutPage!)
         SiteFooter(context: context)
       }
     )
@@ -54,8 +49,8 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
           Div {
             H2(item.title)
               .class("post__title")
-            Paragraph(DateFormatter.shortDate.string(from: item.date))
-              .class("post__date")
+//            Paragraph(DateFormatter.shortDate.string(from: item.date))
+//              .class("post__date")
 //            TagList(context: context, item: item, center: true)
             Div(item.content.body)
               .class("post__text")
@@ -69,6 +64,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
   
   func makePageHTML(for page: Page,
                     context: PublishingContext<BehnkeDotDev>) throws -> HTML {
+    
     var pageToRender:Component
     switch page.path {
     case "about":

@@ -1,5 +1,7 @@
 ---
-title: Close Your Damn Tabs
-description: A silly site to express my pet-peeve
-link: https://closeyourdamntabs.com
+title: Docktor
+description: Manage macOS Dock configurations
+link: https://docktor.app
+scale: app
+status: idea
 ---

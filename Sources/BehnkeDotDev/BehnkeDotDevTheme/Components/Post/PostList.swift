@@ -15,7 +15,7 @@ struct PostList<Site: Website>: Component {
   var title: String
   var body: Component {
     Div {
-      H1(title)
+      H1("Stuff I've thought about")
         .class("content-list-head")
       for item in items {
         PostPreview(context: context, item: item)

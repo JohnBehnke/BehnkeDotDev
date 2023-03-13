@@ -22,7 +22,6 @@ struct PostPreview<Site: Website>: Component {
       }
       Paragraph(DateFormatter.shortDate.string(from: item.date))
         .class("post__date--preview")
-//      TagList(context: context, item: item)
       Paragraph(item.description)
     }
   }

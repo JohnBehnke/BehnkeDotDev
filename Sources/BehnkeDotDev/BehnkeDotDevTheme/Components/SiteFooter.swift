@@ -14,6 +14,13 @@ struct SiteFooter<Site: Website>: Component {
   let currentYear = Calendar.current.component(.year, from: Date())
   var body: Component {
     Footer {
+      Div {
+        Node.a(.attribute(named: "rel", value: "me"), .img(.src("/images/mastodon.svg")),.href("https://mastodon.social/@johnbehnke"), .target(.blank))
+        Node.a( .img(.src("/images/github.svg")),.href("https://github.com/JohnBehnke"),.target(.blank))
+        Node.a( .img(.src("/images/linkedin.svg")),.href("https://www.linkedin.com/in/john-behnke-38b8b419b"),.target(.blank))
+        
+      }.class("socials")
+      
       Paragraph {
         Text("Written in 100% Swift")
       }
@@ -24,9 +31,9 @@ struct SiteFooter<Site: Website>: Component {
       Paragraph {
         Text("Copyright © \(currentYear) John Behnke")
       }
-//    Paragraph {
-//      Link("RRS Feed", url: "/feed.rss")
-//    }
+      Paragraph {
+        Link("RSS Feed", url: "/post.rss")
+      }
     }
   }
 }

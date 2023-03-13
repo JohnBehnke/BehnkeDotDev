@@ -1,5 +1,5 @@
 //
-//  GalleryList.swift
+//  ProjectList.swift
 //  
 //
 //  Created by John Behnke on 5/12/21.
@@ -9,16 +9,46 @@ import Foundation
 import Plot
 import Publish
 
-struct GalleryList<Site: Website>: Component {
+struct ProjectList<Site: Website>: Component {
   var context: PublishingContext<Site>
   var items: [Item<BehnkeDotDev>]
   var title: String
-  var body: Component {    
+  
+  var sillyStuff: [Item<BehnkeDotDev>]
+  var apps: [Item<BehnkeDotDev>]
+  var smallStuff: [Item<BehnkeDotDev>]
+  
+  init(context: PublishingContext<Site>, items: [Item<BehnkeDotDev>], title: String) {
+    self.context = context
+    self.items = items
+    self.title = title
+    
+    self.sillyStuff = items.filter { $0.metadata.scale == "silly" }
+    self.apps = items.filter { $0.metadata.scale == "app" }
+    self.smallStuff = items.filter { $0.metadata.scale == "small" }
+    
+  }
+  
+  var body: Component {
+    
     Div {
-      H1(title)
-        .class("content-list-head")
-      for item in items {
-        ProjectPreview(context: context, item: item)
+      if apps.count > 0 { H1("Apps I'm working on")
+          .class("content-list-head")
+        for item in apps {
+          ProjectPreview(context: context, item: item)
+        }
+      }
+      if smallStuff.count > 0 { H1("Small stuff I'm working on")
+          .class("content-list-head")
+        for item in smallStuff {
+          ProjectPreview(context: context, item: item)
+        }
+      }
+      if sillyStuff.count > 0 { H1("Silly stuff")
+          .class("content-list-head")
+        for item in sillyStuff {
+          ProjectPreview(context: context, item: item)
+        }
       }
     }.class("preview-list")
   }

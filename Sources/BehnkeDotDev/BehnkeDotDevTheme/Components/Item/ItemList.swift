@@ -16,9 +16,13 @@ struct ItemList<Site: Website>: Component {
   var title: String
   var body: Component {
     if items.isEmpty { return EmptyComponent() }
-    return PostList(context: context, items: items, title: title)
+    switch section {
+    case .posts:
+      return PostList(context: context, items: items, title: title)
+    case .projects:
+      return ProjectList(context: context, items: items, title: title)
+    }
   }
-  
 }
 
 
