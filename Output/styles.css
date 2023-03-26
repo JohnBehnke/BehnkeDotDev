@@ -11,6 +11,8 @@ img + em {
   text-align: center;
 }
 
+
+
 .preview-list {
   display: block;
   margin-bottom: 20px;
@@ -66,15 +68,13 @@ img + em {
 .post__text {
   line-height: 1.5;
 }
-.post-test {
-  text-align: center;
-  font-size: 2em;
-  color: #222;
-  margin-bottom: 0.2em;
-}
-.post-text {
-  line-height: 1.5;
-}
+/*.post-test {*/
+/*  text-align: center;*/
+/*  font-size: 2em;*/
+/*  color: #222;*/
+/*  margin-bottom: 0.2em;*/
+/*}*/
+
 .project__title {
   font-size: 2em;
   margin-bottom: 0.2em;
