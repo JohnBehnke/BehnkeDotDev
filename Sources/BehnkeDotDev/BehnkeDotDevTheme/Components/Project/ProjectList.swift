@@ -23,9 +23,10 @@ struct ProjectList<Site: Website>: Component {
     self.items = items
     self.title = title
     
-    self.sillyStuff = items.filter { $0.metadata.scale == "silly" }
-    self.apps = items.filter { $0.metadata.scale == "app" }
-    self.smallStuff = items.filter { $0.metadata.scale == "small" }
+    let sortedItems = items.sorted(by: { ($0.metadata.clickable ?? false) && !($1.metadata.clickable ?? false)})
+    self.sillyStuff = sortedItems.filter { $0.metadata.scale == "silly" }
+    self.apps = sortedItems.filter { $0.metadata.scale == "app" }
+    self.smallStuff = sortedItems.filter { $0.metadata.scale == "small" }
     
   }
   

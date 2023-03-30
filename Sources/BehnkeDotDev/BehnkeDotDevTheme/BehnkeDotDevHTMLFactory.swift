@@ -52,10 +52,14 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
 //            Paragraph(DateFormatter.shortDate.string(from: item.date))
 //              .class("post__date")
 //            TagList(context: context, item: item, center: true)
+            if !(item.metadata.done ?? true) {
+              H3("Work in progress")
+                .class("wip__text")
+            }
             Div(item.content.body)
               .class("post__text")
           }.class("main-text item-page")
-        }.id("")
+        }
         SiteFooter(context: context)
       }
       

@@ -68,6 +68,12 @@ img + em {
 .post__text {
   line-height: 1.5;
 }
+
+.wip__text {
+  margin-bottom: 1em;
+  text-align: center;
+  font-style: italic;
+}
 /*.post-test {*/
 /*  text-align: center;*/
 /*  font-size: 2em;*/

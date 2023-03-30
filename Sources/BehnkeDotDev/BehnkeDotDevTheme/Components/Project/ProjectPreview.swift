@@ -15,9 +15,21 @@ struct ProjectPreview<Site: Website>: Component {
   var body: Component {
     Div(content: {
       Div {
-        H2 {
-          Link(item.title, url: item.metadata.link ?? item.path.absoluteString)
-        }.class("project__title--preview")
+        if item.metadata.clickable ?? false {
+          if item.metadata.link != nil {
+            H2 {
+              Node.a(.target(.blank), .href(item.metadata.link!), .text(item.title))
+            }.class("project__title--preview")
+          } else {
+            H2 {
+              Link(item.title, url: item.path.absoluteString)
+            }.class("project__title--preview")
+          }
+          
+        } else {
+          H2(item.title)
+            .class("project__title--preview")
+        }
         Paragraph(item.description)
           .class("project__description--preview")
       }

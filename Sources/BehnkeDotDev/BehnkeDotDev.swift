@@ -18,6 +18,8 @@ struct BehnkeDotDev: Website {
   struct ItemMetadata: WebsiteItemMetadata {
     var link: String?
     var scale: String?
+    var clickable: Bool?
+    var done: Bool?
   }
 
   static let sectionsToDisplay: Set<String> = ["about", "posts", "projects"]

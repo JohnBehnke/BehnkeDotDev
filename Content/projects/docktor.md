@@ -1,7 +1,9 @@
 ---
 title: Docktor
-description: Manage macOS Dock configurations
-link: https://docktor.app
+description: Orgnaize and sycn your macOS Dock
 scale: app
-status: idea
+clickable: false
+done: false
 ---
+
+
