@@ -13,18 +13,13 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
   func makeIndexHTML(for index: Index,
                      context: PublishingContext<BehnkeDotDev>) throws -> HTML {
 
-    let allItems =  context.allItems(sortedBy: \.date, order: .descending)
     let aboutPage = context.pages["about"]
     return HTML(
       .lang(context.site.language),
       .head(for: index, on: context.site),
       .body{
         SiteHeader(context: context)
-        if(allItems.isEmpty) {
-          AboutPage(context: context, page: aboutPage!)
-        } else {
-          IndexPage(context: context, items: allItems)
-        }
+        AboutPage(context: context, page: aboutPage!)
         SiteFooter(context: context)
       }
     )
@@ -48,20 +43,23 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .head(for: item, on: context.site),
-      
       .body {
         SiteHeader(context: context)
         Div{
           Div {
             H2(item.title)
               .class("post__title")
-            Paragraph(DateFormatter.shortDate.string(from: item.date))
-              .class("post__date")
-            TagList(context: context, item: item, center: true)
+//            Paragraph(DateFormatter.shortDate.string(from: item.date))
+//              .class("post__date")
+//            TagList(context: context, item: item, center: true)
+            if !(item.metadata.done ?? true) {
+              H3("Work in progress")
+                .class("wip__text")
+            }
             Div(item.content.body)
               .class("post__text")
           }.class("main-text item-page")
-        }.id("")
+        }
         SiteFooter(context: context)
       }
       
@@ -70,6 +68,7 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
   
   func makePageHTML(for page: Page,
                     context: PublishingContext<BehnkeDotDev>) throws -> HTML {
+    
     var pageToRender:Component
     switch page.path {
     case "about":
@@ -141,7 +140,6 @@ struct BehnkeDotDevHTMLFactory: HTMLFactory {
 //      )
       .body {
         SiteHeader(context: context)
-      
         H1(ComponentGroup(members: [
           Text("Tagged with "),
           Span(page.tag.string.capitalized).class("tag \(page.tag.string.lowercased())")

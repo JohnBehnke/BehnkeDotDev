@@ -15,7 +15,7 @@ struct SiteSection<Site: Website>: Component {
   var body: Component {
     Div {
       Div {
-        ItemList(context: context, items: section.items, section: section.id, title: section.title, layout: section.id.rawValue == "gallery" ? .masonry : .flex)
+        ItemList(context: context, items: section.items, section: section.id, title: section.title)
       }.class("main-text")
     }.id("content")
   }

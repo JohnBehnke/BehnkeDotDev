@@ -20,8 +20,8 @@ struct PostPreview<Site: Website>: Component {
             .class("post__link")
         }.class("post__title--preview")
       }
-      Paragraph(DateFormatter.shortDate.string(from: item.date)).class("post__date--preview")
-      TagList(context: context, item: item)
+      Paragraph(DateFormatter.shortDate.string(from: item.date))
+        .class("post__date--preview")
       Paragraph(item.description)
     }
   }

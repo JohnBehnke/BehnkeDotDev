@@ -12,30 +12,23 @@ import Plot
 struct BehnkeDotDev: Website {
   enum SectionID: String, WebsiteSectionID {
     case posts
-    case gallery
     case projects
-    case about
   }
   
   struct ItemMetadata: WebsiteItemMetadata {
-    var next: String?
-    var previous: String?
+    var link: String?
+    var scale: String?
+    var clickable: Bool?
+    var done: Bool?
+    var source: String?
   }
 
-  static let sectionsToDisplay: Set<String> = []
-  
-  enum Layout {
-    case masonry
-    case flex
-  }
-  
-  
-  // Update these properties to configure your website:
+  static let sectionsToDisplay: Set<String> = ["about", "projects"]
+
   var url = URL(string: "https://behnke.dev")!
-  var title = "Behnke"
+  var title = "Behnke Dot Dev"
   var name = "John Behnke"
   var description = "John Behnke's personal website"
   var language: Language { .english }
   var imagePath: Path? { .some("images/social-previews/home.png") }
-  
 }
