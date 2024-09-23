@@ -25,7 +25,7 @@ struct AboutPage<Site: Website>: Component {
           .class("profile__image")
       }.class("profile")
       Div(page.body)
-        .class("main-text")
+        .class("about-text")
     }
   }
   

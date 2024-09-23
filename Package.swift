@@ -9,8 +9,7 @@ let package = Package(
         .executable(name: "BehnkeDotDev", targets: ["BehnkeDotDev"])
     ],
     dependencies: [
-      .package(name: "Publish", url: "https://github.com/johnsundell/publish.git", from: "0.3.0"),
-        
+      .package(name: "Publish", url: "https://github.com/johnsundell/publish.git", from: "0.3.0")
     ],
     targets: [
         .target(

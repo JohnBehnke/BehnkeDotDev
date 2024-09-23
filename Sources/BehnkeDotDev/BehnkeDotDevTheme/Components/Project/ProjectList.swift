@@ -31,9 +31,8 @@ struct ProjectList<Site: Website>: Component {
   }
   
   var body: Component {
-    
     Div {
-      if apps.count > 0 { H1("Apps I'm working on")
+      if apps.count > 0 { H1("Some stuff I've built")
           .class("content-list-head")
         for item in apps {
           ProjectPreview(context: context, item: item)
@@ -45,7 +44,7 @@ struct ProjectList<Site: Website>: Component {
           ProjectPreview(context: context, item: item)
         }
       }
-      if sillyStuff.count > 0 { H1("Silly stuff")
+      if sillyStuff.count > 0 { H1("Silly stuff (for the laughs)")
           .class("content-list-head")
         for item in sillyStuff {
           ProjectPreview(context: context, item: item)

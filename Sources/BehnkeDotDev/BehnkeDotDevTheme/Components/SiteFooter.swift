@@ -31,9 +31,9 @@ struct SiteFooter<Site: Website>: Component {
       Paragraph {
         Text("Copyright © \(currentYear) John Behnke")
       }
-      Paragraph {
-        Link("RSS Feed", url: "/post.rss")
-      }
+//      Paragraph {
+//        Link("RSS Feed", url: "/post.rss")
+//      }
     }
   }
 }

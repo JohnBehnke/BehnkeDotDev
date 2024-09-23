@@ -1,6 +1,6 @@
 //
 //  ProjectPreview.swift
-//  
+//
 //
 //  Created by John Behnke on 1/22/22.
 //

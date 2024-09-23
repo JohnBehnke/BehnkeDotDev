@@ -2,6 +2,6 @@ I'm a software developer out of Connecticut, currently at IBM in the Digital Wor
 
 If you want to checkout my astrophotography work, you can check it out <a href="https://astrobehnke.space" target="_blank">here</a>
 
-Feel free to reach out to me. 
+Feel free to reach out to me at hello(at)behnke(dot)xyz. 
 
 

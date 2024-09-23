@@ -11,8 +11,6 @@ img + em {
   text-align: center;
 }
 
-
-
 .preview-list {
   display: block;
   margin-bottom: 20px;
@@ -214,7 +212,14 @@ footer > p {
 }
 
 .main-text {
+  line-height: 1.5;
   letter-spacing: 1px;
+}
+
+.about-text {
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 @media (min-width: 35.625em), (min-width: 45.625em), (min-width: 12.4375em) {
