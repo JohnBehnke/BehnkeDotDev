@@ -1,10 +1,10 @@
 ---
 title: Hello World!
-date: 2024-09-024 16:17
+date: 2024-09-024 16:38
 description: A New Beginning.
 ---
 
-**I’ll be honest—I’m bad at this.**
+I’ll be honest—I’m bad at this. This is heavily abridged version of my original 'Hello World' post I sat on for two years and deleted.
 
 I’ve rewritten this site a few times over the years, and it’s usually just been a single HTML file, a single CSS file, and maybe some embedded JavaScript. Nothing fancy.
 
@@ -12,9 +12,9 @@ But in 2021, I pushed a big change to this website’s repository. I moved from 
 
 I made the switch to Publish for a few reasons:
 
-	•	I like Swift, and Publish’s SwiftUI-inspired syntax for building a site just works for my brain.
-	•	I wanted a place to blog.
-	•	I wanted a place to post my astrophotography photos.
+1. I like Swift, and Publish’s SwiftUI-inspired syntax for building a site just works for my brain.
+2. I wanted a place to blog.
+3. I wanted a place to post my astrophotography photos.
 
 Maybe my goopy-goblin-gamer brain kicked in, but I wasn’t really happy with what I built. I didn’t like the layouts, the colors, or the styling... I could go on. So, I ended up just removing everything that wasn’t the “About” page, and I left it like that for three years.
 
@@ -38,6 +38,8 @@ What’s going to end up here?
 
 **No clue.**
 
-But hey, I think I got the RSS feed working, so if you want to follow along, there’s that.
+But that's the fun part. I can't figure out what's going to end up here _unless I start putting stuff here_. It doesn't have to be perfect. It doesn't even have to be good. It just has to exist.
+
+I think I got the RSS feed working, so if you want to follow along, there’s that.
 
 🙂
