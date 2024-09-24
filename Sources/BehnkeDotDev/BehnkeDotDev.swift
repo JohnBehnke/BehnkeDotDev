@@ -23,7 +23,7 @@ struct BehnkeDotDev: Website {
     var source: String?
   }
 
-  static let sectionsToDisplay: Set<String> = ["about", "projects"]
+  static let sectionsToDisplay: Set<String> = ["about", "posts", "projects"]
 
   var url = URL(string: "https://behnke.dev")!
   var title = "Behnke Dot Dev"
